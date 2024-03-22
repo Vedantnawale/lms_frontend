@@ -6,6 +6,9 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require("daisyui"),
+    require('@tailwindcss/line-clamp'),
+  ],
 }
 
