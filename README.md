@@ -25,3 +25,40 @@ cd lms-frontend
     npm run dev
 
 ```
+
+### Setup instructions for tailwind
+
+[Tailwind official instruction doc]([https://tailwindcss.com/docs/guides/create-react-app](https://tailwindcss.com/docs/guides/create-react-app))
+
+1. Install tailwindcss
+
+```
+    npm install -D tailwindcss
+
+```
+
+2. Create tailwind config file
+
+```
+     npx tailwindcss init
+
+```
+
+3. Add file extensions to tailwind config file in the contents property
+
+```
+content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+  ],
+
+```
+
+4. Add the Tailwind directives to your `index.css` file
+
+```
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+```
