@@ -14,7 +14,7 @@ const Denied = () => {
             <button
                 onClick={() => navigate(-1)}
                 className='mt-5'>
-                <span className='relative block px-8 py-3 bg-[#1A2238] hover:bg-yellow-400  hover:text-white border border-current'>
+                <span className='relative block px-8 py-3 bg-[#1A2238] hover:bg-green-400  hover:text-white border border-current'>
                     Go Back</span>
             </button>
         </main>
