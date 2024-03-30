@@ -6,9 +6,9 @@ import { useSelector } from 'react-redux';
 
 const CourseDescription = () => {
   // const locator = useLocation();
-  const { state } = useLocation();
+  const { state } = useLocation();  // ya warun aaplyale purn info bhette
 
-  const { role, data } = useSelector((state) => state.auth);
+  const { role, data } = useSelector((state) => state.auth); // ya warun aapan user jo login jhala aahe tycha role kadhto
 
 
   return (
