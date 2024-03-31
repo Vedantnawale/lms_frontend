@@ -24,14 +24,14 @@ export const getAllCourses = createAsyncThunk("/course/get", async () => {
 
 export const createNewCourse = createAsyncThunk("/course/create", async (data) => {
     try {
-        let formdata = new FormData();
-        formdata.append("title", data?.title);
-        formdata.append("description", data?.description);
-        formdata.append("category", data?.category);
-        formdata.append("createdBy", data?.createdBy);
-        formdata.append("thumbnail", data?.thumbnail);
+        let formData = new FormData();
+        formData.append("title", data?.title);
+        formData.append("description", data?.description);
+        formData.append("category", data?.category);
+        formData.append("createdBy", data?.createdBy);
+        formData.append("thumbnail", data?.thumbnail);
 
-        const response = axiosInstance.post("/courses", formdata);
+        const response = axiosInstance.post("/courses", formData);
         toast.promise(response, {
             loading: "Creating new course",
             success: "Course created successfully",
@@ -40,10 +40,10 @@ export const createNewCourse = createAsyncThunk("/course/create", async (data) =
 
         return (await response).data
 
-    } catch (error) {
-        toast.error(error?.respomse?.data?.message)
+    } catch(error) {
+        toast.error(error?.response?.data?.message);
     }
-})
+});
 
 const courseSlice = createSlice({
     name: "courses",
