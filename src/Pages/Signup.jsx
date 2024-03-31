@@ -84,7 +84,7 @@ const Signup = () => {
         console.log(response);
 
         if (response?.payload?.success)
-            navigate("/");
+            navigate("/login");
 
         setSignupData({
             fullName: "",

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { createNewCourse } from '../../Redux/Slices/CourseSlice';
 import HomeLayout from '../../Layouts/HomeLayout';
 import { AiOutlineArrowLeft } from 'react-icons/ai';

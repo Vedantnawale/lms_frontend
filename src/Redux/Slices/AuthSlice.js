@@ -2,9 +2,9 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-hot-toast";
 import axiosInstance from "../../Helpers/axiosInstance.js"
 const initialState = {
-    isLoggedIn: localStorage.getItem(`isLoggedIn`) || false,
-    role: localStorage.getItem('role') || "",
-    data: localStorage.getItem('data') || {}
+    isLoggedIn: localStorage.getItem("isLoggedIn") || false,
+    role: localStorage.getItem("role") || "",
+    data: localStorage.getItem("data") || {}
 }
 
 // read thunk redux in docs
@@ -43,6 +43,7 @@ export const login = createAsyncThunk("/auth/login", async (data) => {
         // getting response resolved here
         res = await res;
         return res.data;
+        console.log(res.data);
     } catch (error) {
         toast.error(error?.response?.data?.message);
     }
@@ -62,6 +63,7 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 
         // getting response resolved here
         res = await res;
+        console.log(res.data);
         return res.data;
     } catch (error) {
         toast.error(error.message);
@@ -70,16 +72,16 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 
 
 const authSlice = createSlice({
-    name: 'auth',
+    name: "auth",
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(login.fulfilled, (state, action) => {
                 localStorage.setItem("data", JSON.stringify(action?.payload?.user));
-                localStorage.setItem("isLoggedIn", true);
+                localStorage.setItem("isLoggedIn", action?.payload?.success);
                 localStorage.setItem("role", action?.payload?.user?.role);
-                state.isLoggedIn = true;
+                state.isLoggedIn = action?.payload?.success;
                 state.data = action?.payload?.user;
                 state.role = action?.payload?.user?.role;
             })
