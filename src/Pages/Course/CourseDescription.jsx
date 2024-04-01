@@ -55,12 +55,12 @@ const CourseDescription = () => {
 
           </div>
 
-          <div className='space-y-2 text-xl'>
+          <div className='space-y-2 text-xl text-justify'>
             <h1 className='tetx-3xl font-bold text-yellow-500 mb-5 text-center'>
               {state?.title}
             </h1>
             <p className=' text-yellow-500'>Course Description: </p>
-              {state?.title}
+              {state?.description}
           </div>
         </div>
       </div>
