@@ -4,7 +4,7 @@ import axiosInstance from "../../Helpers/axiosInstance.js"
 const initialState = {
     isLoggedIn: localStorage.getItem("isLoggedIn") || false,
     role: localStorage.getItem("role") || "",
-    data: localStorage.getItem("data") || {}
+    data: JSON.parse(localStorage.getItem("data")) || {}  // jeva first time login kart aaho tr data object chya form madhe yet aahe an jeva refresh kel tr data string format madhe yete mhnun aapn JSON.parse use kel aahe aata data object form madhech rahnar.
 }
 
 // read thunk redux in docs
