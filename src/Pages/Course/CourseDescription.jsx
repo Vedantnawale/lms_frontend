@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import HomeLayout from '../../Layouts/HomeLayout';
 import { useSelector } from 'react-redux';
 
@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 const CourseDescription = () => {
   // const locator = useLocation();
   const { state } = useLocation();  // ya warun aaplyale purn info bhette
+  const navigate = useNavigate();
 
   const { role, data } = useSelector((state) => state.auth); // ya warun aapan user jo login jhala aahe tycha role kadhto
 
@@ -45,7 +46,7 @@ const CourseDescription = () => {
                     Watch Lectures
                   </button>
                 ) : (
-                  <button className='bg-yellow-600 text-xl rounded-md font-bold px-5 py-3 w-full hover:bg-yellow-500 transition-all ease-in-out duration-300'>
+                  <button onClick={() => navigate("/checkout")} className='bg-yellow-600 text-xl rounded-md font-bold px-5 py-3 w-full hover:bg-yellow-500 transition-all ease-in-out duration-300'>
                     Subscribe
                   </button>
                 )
