@@ -47,22 +47,21 @@ export const verifyUserPayment = createAsyncThunk("/payments/verify", async(data
     }
 }) 
 
-export const getPaymentRecord = createAsyncThunk("/payments/record", async() => {
+export const getPaymentRecord = createAsyncThunk("/payments/record", async () => {
     try {
-        const response = axiosInstance.get("/payments?count = 100", );
+        const response = axiosInstance.get("/payments?count=100", );
         toast.promise(response, {
             loading: "Getting the payment records",
-            success: (data) =>{
+            success: (data) => {
                 return data?.data?.message
             },
             error: "Failed to get payment records"
         })
         return (await response).data;
-
-    } catch (error) {
-       toast.error("Operation Failed");
+    } catch(error) {
+        toast.error("Operation failed");
     }
-}); 
+});
 
 export const cancelCourseBundle = createAsyncThunk("/payments/cancel", async() => {
     try {
